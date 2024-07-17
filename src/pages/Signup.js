@@ -57,8 +57,8 @@ const Signup = () => {
       });
 
       console.log('Signup Successful');
-      navigate(`/verify/${email}`);
-      if (response.ok) {
+     
+      if (response.status ===200) {
         toast.success(response.data.message || 'Signup Successful!', {
           position: 'top-right',
           autoClose: 5000,
@@ -68,6 +68,11 @@ const Signup = () => {
           draggable: true,
           progress: undefined,
         });
+        setTimeout(() => {
+          navigate(`/verify/${email}`);
+
+        },1000)
+       
        
       }
     } catch (error) {

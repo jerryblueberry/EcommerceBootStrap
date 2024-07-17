@@ -14,9 +14,32 @@ const ForgetPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/user/password-recovery', { email: email });
+      const response = await axios.post(
+        'http://localhost:5000/user/password-recovery',
+        { email: email }
+      );
       if (response.status === 200) {
-        toast.success(response.data.message || "We've sent you OTP for password reset", {
+        toast.success(
+          response.data.message || "We've sent you OTP for password reset",
+          {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }
+        );
+        setTimeout(() => {
+          navigate(`/new-password/${email}`);
+        }, 1000);
+      }
+    } catch (error) {
+      console.error('Password Reset Failed:', error.response.data);
+      toast.error(
+        error.response.data.error || 'Password Reset Failed! Please try again.',
+        {
           position: 'top-right',
           autoClose: 5000,
           hideProgressBar: false,
@@ -24,20 +47,8 @@ const ForgetPassword = () => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-        });
-        navigate(`/new-password/${email}`);
-      }
-    } catch (error) {
-      console.error('Password Reset Failed:', error.response.data);
-      toast.error(error.response.data.error || 'Password Reset Failed! Please try again.', {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+        }
+      );
     }
   };
 

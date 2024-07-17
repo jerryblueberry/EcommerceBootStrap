@@ -28,7 +28,11 @@ const Verify = () => {
           draggable: true,
           progress: undefined,
         });
-        navigate('/login');
+        setTimeout(() => {
+          navigate('/login');
+
+        },600)
+        
       }
     } catch (error) {
       console.error('Verification Failed:', error.response.data);

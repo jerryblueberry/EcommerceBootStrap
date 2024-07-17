@@ -9,7 +9,7 @@
   margin-right: 0.5rem;
 }
 .icon:hover {
-  background-color: red;
+  background-color: rgb(231, 211, 211);
 }
 .dropdown_class {
   /* width: 120px; */

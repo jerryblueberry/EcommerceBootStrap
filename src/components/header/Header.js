@@ -22,6 +22,7 @@ import Cookies from 'js-cookie';
 function Header() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [userName, setUserName] = useState('');
+
   useEffect(() => {
     const userNameCookie = Cookies.get('userName');
     if (userNameCookie) {
@@ -69,7 +70,9 @@ function Header() {
       <Navbar collapseOnSelect expand="lg" className="bg-body" fixed="top">
         <Container>
           <Navbar.Brand className='logo' onClick={handleHome}>LogoLO</Navbar.Brand>
-           {/* <p>{userName}</p> */}
+          {/*  FOr logged user name check */}
+           {/* <p>{userName}</p>  */}
+           
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
@@ -382,7 +385,7 @@ function Header() {
                   {userName ? (
                     <span onClick={handleLogout}>
                       <ExitToAppOutlinedIcon className="icon" />
-                      Sign out
+                      Log out
                     </span>
                   ) : (
                     <span onClick={handleLogin}>
