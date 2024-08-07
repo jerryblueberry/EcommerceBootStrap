@@ -1,8 +1,10 @@
 .carousel_head {
   width: 100%;
-  margin-top: 80px;
+  margin-top: 100px;
   /* margin-left: -20px; */
   /* padding: 10px 10px; */
+}
+.carousel_item {
 }
 
 /* media query */

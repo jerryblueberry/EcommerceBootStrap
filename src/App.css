@@ -43,3 +43,7 @@
   /* width: 120px; */
   /* padding-left: 10px; */
 }
+
+::-webkit-scrollbar {
+  display: block;
+}

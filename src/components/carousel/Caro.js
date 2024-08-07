@@ -10,7 +10,7 @@ import './Caro.css';
 function Caro() {
   return (
     <Carousel className='carousel_head'>
-      <Carousel.Item interval={500}>
+      <Carousel.Item className='carousel_item' interval={500}>
         <ExampleCarouselImage src={Img1} text="Second slide" />
       
       </Carousel.Item>

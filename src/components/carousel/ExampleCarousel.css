@@ -1,5 +1,6 @@
 @media (max-width: 768px) {
   .classImg {
-    max-width: 12px;
+    max-width: 312px;
+    height: 400px;
   }
 }

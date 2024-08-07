@@ -1,0 +1,138 @@
+/* MobilePhone.css */
+
+.mobile-phone-container {
+  display: flex;
+  /* gap: 20px; */
+}
+
+.product-container {
+  flex: 1;
+  /* padding: 20px; */
+}
+
+.brand-section {
+  margin-bottom: 40px;
+}
+
+.brand-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.text-header {
+  font-size: 1.4em;
+  font-weight: bold;
+  font-family: 'system-ui, -apple-system, BlinkMacSystemFont, ' Segoe UI
+    ', Roboto, Oxygen, Ubuntu, Cantarell, ' Open Sans ', ' Helvetica Neue
+    ', sans-serif';
+}
+
+.view-all {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 1em;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  border: 1px solid #f6f4f4;
+  box-shadow: 0 5px 9px rgba(0, 0, 0, 0.1);
+}
+.cursor_p:hover {
+  cursor: pointer;
+  color: #007bff;
+}
+
+.product-card {
+  /* border: 1px solid #ddd; */
+  padding: 10px;
+  width: 200px; /* Adjust as needed */
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  border-radius: 8px;
+  /* background-color: #fff; */
+  text-align: center;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.product-name {
+  font-size: 1em;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.rating-section {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.rating-icon {
+  color: #ffd700; /* Gold color for the star icon */
+  font-size: 1.2em;
+}
+
+.rating-text {
+  font-size: 1em;
+  color: #333;
+}
+.pricing_section {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  gap: 2px;
+  align-items: center;
+
+  /* padding: 0 10px; */
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 0.9em;
+}
+
+.discount_price {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+.discount-text {
+  font-size: 0.7em;
+  font-weight: bold;
+  color: green;
+}
+
+.more_image {
+  width: 50px;
+}
+
+.more_image_part {
+  width: 120px;
+  height: 120px;
+}

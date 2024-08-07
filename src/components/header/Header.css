@@ -1,24 +1,25 @@
+/* General styling for better alignment and spacing */
 .logo:hover {
   cursor: pointer;
 }
 .search-input {
-  width: 300px;
+  width: 350px;
+  padding: 0.5rem;
 }
 
 .icon {
   margin-right: 0.5rem;
 }
 .icon:hover {
-  background-color: rgb(231, 211, 211);
+  /* background-color: rgb(231, 211, 211); */
+  border-radius: 50%;
 }
+
 .dropdown_class {
-  /* width: 120px; */
   padding-left: 10px;
 }
 
-/*  for the electronics category  dropdown*/
-
-/*  media query */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .navbar-nav {
     flex-direction: column;
@@ -47,8 +48,24 @@
   }
 }
 
-/* Adjust position of user avatar dropdown */
-.dropdown_class {
-  /* width: 120px; */
-  /* padding-left: 10px; */
+/* Additional styling for better responsiveness on smaller screens */
+@media (max-width: 576px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .search-input {
+    margin-top: 25px;
+    padding: 0.3rem;
+    font-size: 0.9rem;
+  }
+
+  .nav-link,
+  .dropdown-item {
+    font-size: 0.9rem;
+  }
+
+  .icon {
+    margin-right: 0.3rem;
+  }
 }
