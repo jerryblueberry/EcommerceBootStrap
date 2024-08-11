@@ -28,7 +28,8 @@ const Login = () => {
       // Set the token as a cookie
       Cookies.set('jwt', response.data.token, { expires: 15 }); // Set cookie with a 15-day expiry
       Cookies.set('userName', response.data.user.name); // Set username in cookie
-      
+      Cookies.set('userRole',response.data.user.role);
+      Cookies.set('userId',response.data.user._id);
       // window.location.reload(); // Reload the page
       console.log('Login Successful');
       if (response.status === 200) {

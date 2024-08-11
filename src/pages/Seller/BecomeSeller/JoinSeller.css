@@ -1,0 +1,95 @@
+.join-seller-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.instructions {
+  text-align: center;
+  color: #777;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.join-seller-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+label {
+  font-weight: bold;
+  color: #444;
+  display: flex;
+  align-items: center;
+}
+
+.help-icon {
+  margin-left: 10px;
+  color: #888;
+  cursor: pointer;
+}
+
+input[type='file'] {
+  padding: 8px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+input[type='file']:hover {
+  border-color: #888;
+}
+
+.submit-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #45a049;
+}
+
+.submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .join-seller-container {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .submit-btn {
+    padding: 12px 15px;
+    font-size: 16px;
+  }
+}

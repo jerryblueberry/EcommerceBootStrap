@@ -16,6 +16,7 @@ const Detail = () => {
   const [error, setError] = useState(null);
   const [selectedImage, setSelectedImage] = useState('');
   const [similarProducts, setSimilarProducts] = useState([]);
+  const [vendorProducts,setVendorProducts] = useState([]);
 
   const fetchProduct = async () => {
     try {
@@ -24,7 +25,8 @@ const Detail = () => {
       );
       setProduct(response.data.product);
       setSelectedImage(response.data.product.images[0]);
-      setSimilarProducts(response.data.recommendations.similarProducts);
+      setVendorProducts(response.data.recommendations?.vendorProducts);
+      setSimilarProducts(response.data.recommendations?.similarProducts);
     } catch (error) {
       console.error('Error while fetching product', error);
       setError('Failed to fetch product details');
@@ -125,26 +127,59 @@ const Detail = () => {
                 </h6>
                 <h6 className="price"> ₹{formatPrice(product.price)}</h6>
                 <h6 className="discount">{product.discount}% off</h6>
+                
               </div>
-            </div>
+            </div>  
+            
             {/* <p>Description: {product.description}</p>
             <p>Review: {product.review}</p>
             <p>Colors: {product.color[0]}</p>
             <p>Sizes: {product.size[0]}</p> */}
-            <SpecsMobile onColorSelect = {handleColorSelection} />
+            <SpecsMobile onColorSelect = {handleColorSelection} description ={product?.description} description1 = {product?.productDescription?.description1} description2 = {product?.productDescription?.description2} description1Img = {product?.productDescription?.description1Img} description2Img ={product?.productDescription?.description2Img} seller = {product?.storeId?.name} color={product.color} rom= {product?.storage} ram = {product?.ram} offers= {product?.offers} highlights = {product?.highlights}/>
           </div>
          
+         
         </div>
+        {/* <p>{product.storeId.name}</p> */}
         
         {/* for the component  */}
      
-        {/* For Similar products */}
-        <p>Similar Products</p>
-        {similarProducts.map((similar, index) => (
-          <div key={index}>
-            <p>{similar.name}</p>
-          </div>
-        ))}
+        <div className="product-sections">
+  {/* Similar Products */}
+  <div className="similar-products-section">
+    <h2>Similar Products</h2>
+    <div className="product-list">
+      {similarProducts.map((similar, index) => (
+        <div className="product-card" key={index}>
+          <img
+            className="product-image"
+            src={`http://localhost:5000/${similar.images[0]}`}
+            alt={similar.name}
+          />
+          <p className="product-name">{similar.name}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* More from Vendor */}
+  <div className="vendor-products-section">
+    <h2>More from Vendor</h2>
+    <div className="product-list">
+      {vendorProducts.map((vendor, index) => (
+        <div className="product-card" key={index}>
+          <img
+            className="product-image"
+            src={`http://localhost:5000/${vendor.images[0]}`}
+            alt={vendor.name}
+          />
+          <p className="product-name">{vendor.name}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
       </div>
     </>
   );

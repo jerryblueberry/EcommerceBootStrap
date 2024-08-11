@@ -1,12 +1,12 @@
 /* SpecsMobile.css */
 
 .specs-mobile {
-  padding: 20px;
+  padding: 15px;
 }
 
 .offer_list {
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
 .offer-name {
@@ -23,18 +23,17 @@
     'Helvetica Neue',
     sans-serif;
   font-weight: 450;
-  line-height: 1m;
+  line-height: 1.2;
   color: rgb(69, 69, 69);
   letter-spacing: 0.1mm;
-  font-size: 0.9em;
+  font-size: 0.85em;
 }
 
 .section_image_storage {
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* gap: 20px; */
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .color-images,
@@ -45,7 +44,7 @@
 .color_text,
 .storage_text {
   text-align: center;
-  font-size: 1em;
+  font-size: 0.9em;
   font-weight: bold;
   font-family:
     system-ui,
@@ -66,49 +65,264 @@
 .storage_options {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .color_available,
 .storage_option {
-  /* padding: 10px; */
-  width: 450px;
-  border: 1.9px dotted #ccc;
+  border: 1.5px dotted #ccc;
   border-radius: 4px;
   cursor: pointer;
   transition: border-color 0.3s ease;
+  padding: 5px;
 }
+
 .storage_option {
-  width: 120px;
+  width: 100px;
 }
+
 .storage_options p {
-  font-size: 11px;
-  padding: 0 3px;
+  font-size: 0.85em;
+  padding: 0 2px;
 }
 
 .color_available.selected,
-.storage_option.selected {
+.storage_option.selected,
+.storage_option_ram.selected {
   border: 1.9px solid blue;
 }
 
 .image_color_available {
   width: 40px;
-  height: 50px;
-
+  height: 45px;
   object-fit: cover;
 }
 
-@media (max-width: 768px) {
-  .color_available,
-  .storage_option {
-    width: calc(33.333% - 10px);
+.storage_section_ram {
+  margin-left: 4em;
+  align-items: center;
+}
+
+.storage_text_ram {
+  margin-top: 8px;
+  color: #7f7e7e;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-weight: bold;
+  font-size: 0.9em;
+  margin-left: 1.5em;
+}
+
+.storage_options_ram {
+  display: flex;
+  gap: 8px;
+  width: 260px;
+  padding: 8px;
+}
+
+.storage_options_ram p {
+  display: flex;
+  justify-content: center;
+  font-size: 0.85em;
+  font-weight: bold;
+  color: #7f7e7e;
+}
+/*  Highlights section */
+.highlight_section {
+  display: flex;
+  margin-top: 10px;
+  margin-left: 5em;
+  /* align-items: center; */
+}
+.highlight_section h5 {
+  color: #7f7e7e;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+}
+.highlight_section ul {
+  color: #7f7e7e;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-weight: 450;
+}
+
+.seller_section {
+  margin-left: 5em;
+  display: flex;
+  gap: 2em;
+  margin-top: 0.1em;
+}
+.seller_section h6 {
+  color: #7f7e7e;
+  font-size: 1em;
+  font-weight: bold;
+}
+.seller_name {
+  color: rgb(60, 60, 187);
+  font-size: 1em;
+}
+.seller_name:hover {
+  cursor: pointer;
+  color: blue;
+}
+.description_product {
+  margin-left: 4.2em;
+  margin-top: 0.5em;
+  display: flex;
+  /* align-items: center; */
+  gap: 20px;
+  /* border: 1px solid red; */
+  padding: 10px;
+}
+.description_product h5 {
+  color: #7f7e7e;
+  font-weight: bold;
+  font-size: 0.98em;
+  margin: 0;
+}
+.description_product h6 {
+  font-size: 0.85em;
+  font-weight: 350;
+}
+
+/*  for extra description */
+.extra_description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border: 2px dotted rgb(214, 214, 214);
+}
+
+.part_description {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+.border_item {
+  border: 1px solid rgb(230, 228, 228);
+  height: 420px;
+  margin: 0;
+}
+.responsive_img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.title_description {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+
+  color: #7f7e7e;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-weight: 600;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .extra_description {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .part_description {
+    max-width: 45%;
   }
 }
 
-@media (min-width: 769px) {
+/* Responsive styles for devices with max-width of 320px */
+@media (max-width: 320px) {
   .color_available,
   .storage_option {
-    width: calc(20% - 10px);
+    width: calc(50% - 8px);
+  }
+
+  .storage_options_ram {
+    width: 160px;
+  }
+
+  .specs-mobile {
+    padding: 10px;
+  }
+
+  .offer-name {
+    font-size: 0.8em;
+  }
+
+  .storage_text_ram {
+    font-size: 0.85em;
+    margin-left: 1em;
+  }
+  .highlight_section {
+    margin: 0px;
+  }
+  .description_product {
+    margin: 0;
+  }
+  .border_item {
+    display: none;
   }
 }
+@media (max-width: 512px) {
+  .highlight_section {
+    margin-top: 20px;
+    margin: 0px;
+  }
+  .description_product {
+    margin: 0;
+  }
+  .border_item {
+    display: none;
+  }
+}
+
+/*  look by adding multiple images and of the color and ram and rom settings
+ */

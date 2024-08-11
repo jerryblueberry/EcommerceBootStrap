@@ -13,6 +13,7 @@ import MobilePhone from './pages/CategoriesPage/MobilePhone';
 import Detail from './pages/DetailPage/Detail';
 import AddProduct from './pages/Seller/AddProduct/AddProduct';
 import JoinSeller from './pages/Seller/BecomeSeller/JoinSeller';
+import AddStore from './pages/Seller/AddStore/AddStore';
 
 const App = () => {
   return  (
@@ -36,6 +37,7 @@ const App = () => {
           {/*  for the seller routes */}
           <Route path='/seller/join-seller/:userId' element = {<JoinSeller/>}/>
           <Route path='/seller/addproduct/:storeId' element ={<AddProduct/>}/>
+          <Route path = '/seller/add-store/:userId'  element ={<AddStore/>}/>
         
         </Routes>
       </BrowserRouter>

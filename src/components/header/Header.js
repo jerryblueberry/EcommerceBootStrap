@@ -23,13 +23,30 @@ import StorefrontSharpIcon from '@mui/icons-material/StorefrontSharp';
 function Header() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [userName, setUserName] = useState('');
+  const [userId, setUserId] = useState('');
+  const [userRole, setUserRole] = useState('');
 
   useEffect(() => {
     const userNameCookie = Cookies.get('userName');
+    const userIdCookie = Cookies.get('userId');
+    const userRoleCookie = Cookies.get('userRole');
+    
     if (userNameCookie) {
       setUserName(userNameCookie);
     } else {
-      alert('Token not found');
+      // alert('User name token not found');
+    }
+    
+    if (userIdCookie) {
+      setUserId(userIdCookie);
+    } else {
+      // alert('User ID token not found');
+    }
+    
+    if (userRoleCookie) {
+      setUserRole(userRoleCookie);
+    } else {
+      // alert('User role token not found');
     }
   }, []);
 
@@ -48,7 +65,11 @@ function Header() {
       const api = 'http://localhost:5000/user/logout';
       await axios.post(`${api}`);
       Cookies.remove('userName');
+      Cookies.remove('userId');
+      Cookies.remove('userRole');
       setUserName('');
+      setUserId('');
+      setUserRole('');
       toast.success('Logged out successfully');
     } catch (error) {
       console.log('Error while logging out', error);
@@ -137,10 +158,15 @@ function Header() {
                   )}
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="/seller/addproduct/12212">
-              <StorefrontSharpIcon className='icon'/>
+              {userRole ==="user" ? <Nav.Link href={`/seller/join-seller/${userId}`}>
+                <StorefrontSharpIcon className='icon'/>
                 <span className="me-2">Become Seller</span>
-              </Nav.Link>
+              </Nav.Link> :  <Nav.Link href="/seller/addproduct/12212">
+                <StorefrontSharpIcon className='icon'/>
+                <span className="me-2">Become Seller</span>
+              </Nav.Link>  }
+              
+            
             </Nav>
           </Navbar.Collapse>
         </Container>
