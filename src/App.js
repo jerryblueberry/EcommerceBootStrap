@@ -14,6 +14,8 @@ import Detail from './pages/DetailPage/Detail';
 import AddProduct from './pages/Seller/AddProduct/AddProduct';
 import JoinSeller from './pages/Seller/BecomeSeller/JoinSeller';
 import AddStore from './pages/Seller/AddStore/AddStore';
+import StoreSection from './pages/Seller/StoreSection/StoreSection';
+import UpdateProduct from './pages/Seller/UpdateProduct/UpdateProduct';
 
 const App = () => {
   return  (
@@ -29,16 +31,17 @@ const App = () => {
           <Route path='/verify/:email' element={<Verify />}/>
           <Route path='/new-password/:email' element={<ChangePassword />}/>
           {/*  for the categories */}
-          <Route path='/category/mobilephone' element = {<MobilePhone/>}/>
+          <Route path='/category/:category' element = {<MobilePhone/>}/>
           {/* for the product detail currently mobile only  */}
           <Route path='/detail/:sku' element = {<Detail/>}/>
 
 
           {/*  for the seller routes */}
           <Route path='/seller/join-seller/:userId' element = {<JoinSeller/>}/>
-          <Route path='/seller/addproduct/:storeId' element ={<AddProduct/>}/>
+          <Route path='/seller/add-product/:storeId' element ={<AddProduct/>}/>
           <Route path = '/seller/add-store/:userId'  element ={<AddStore/>}/>
-        
+          <Route path='/store/section/:storeId' element ={<StoreSection/>}/>
+          <Route path='/seller/update-product/:sku' element = {<UpdateProduct/>}/>
         </Routes>
       </BrowserRouter>
      

@@ -30,19 +30,19 @@ function Header() {
     const userNameCookie = Cookies.get('userName');
     const userIdCookie = Cookies.get('userId');
     const userRoleCookie = Cookies.get('userRole');
-    
+
     if (userNameCookie) {
       setUserName(userNameCookie);
     } else {
       // alert('User name token not found');
     }
-    
+
     if (userIdCookie) {
       setUserId(userIdCookie);
     } else {
       // alert('User ID token not found');
     }
-    
+
     if (userRoleCookie) {
       setUserRole(userRoleCookie);
     } else {
@@ -158,15 +158,17 @@ function Header() {
                   )}
                 </NavDropdown.Item>
               </NavDropdown>
-              {userRole ==="user" ? <Nav.Link href={`/seller/join-seller/${userId}`}>
-                <StorefrontSharpIcon className='icon'/>
-                <span className="me-2">Become Seller</span>
-              </Nav.Link> :  <Nav.Link href="/seller/addproduct/12212">
-                <StorefrontSharpIcon className='icon'/>
-                <span className="me-2">Become Seller</span>
-              </Nav.Link>  }
-              
-            
+              {userRole === 'user' ? (
+                <Nav.Link href={`/seller/join-seller/${userId}`}>
+                  <StorefrontSharpIcon className="icon" />
+                  <span className="me-2">Become Seller</span>
+                </Nav.Link>
+              ) : userRole === 'seller' ? (
+                <Nav.Link href={`/seller/add-store/${userId}`}>
+                  <StorefrontSharpIcon className="icon" />
+                  <span className="me-2">Store</span>
+                </Nav.Link>
+              ) : null}
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -15,14 +15,14 @@
   margin-left: 10px;
 }
 
-.brand-header {
+.brand-header_category {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
 }
 
-.text-header {
+.text-header_category {
   font-size: 1.4em;
   text-transform: uppercase;
   font-weight: bold;

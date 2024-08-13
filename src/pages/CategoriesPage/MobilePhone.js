@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import GradeIcon from '@mui/icons-material/Grade';
 import './css/MobilePhone.css';
 import MobileSidebar from '../../components/Sidebar/mobile/MobileSidebar';
+import MenCategories from './ComponentsCategories/MenCategories';
 
 // Function to format price with commas and currency symbol
 const formatPrice = (value, currencySymbol = '₹') => {
@@ -18,6 +19,7 @@ const formatPrice = (value, currencySymbol = '₹') => {
 
 const MobilePhone = () => {
   const [productsByBrand, setProductsByBrand] = useState({});
+  const { category } = useParams();
   const navigate = useNavigate();
   useEffect(() => {
     const fetchProducts = async () => {
@@ -54,57 +56,67 @@ const MobilePhone = () => {
     return price - (price * discount) / 100;
   };
 
-
   const handleCardClick = (sku) => {
-    console.log("clicked",sku);
-    navigate(`/detail/${sku}`)
-  }
+    console.log('clicked', sku);
+    navigate(`/detail/${sku}`);
+  };
 
   return (
     <div className="mobile-phone-container">
       <MobileSidebar />
-      <div className="product-container">
-        {Object.entries(productsByBrand).map(([brand, products]) => (
-          <div className="brand-section" key={brand}>
-            <div className="brand-header">
-              <p className="text-header">{brand} Smartphones</p>
-              <a href={`/products/${brand}`} className="view-all">
-                View All
-              </a>
-            </div>
-            <div className="product-grid">
-              {products.map((product) => (
-                <div key={product._id} className="product-card">
-                <div onClick={() => handleCardClick(product.sku)} className='cursor_p'>
-                <img
-                    src={getImageUrl(product.images[0])}
-                    alt={product.name}
-                    className="product-image"
-                  />
-                  <p className="product-name">{product.name}</p>
-                </div>
-                  
-                  <div className="rating-section">
-                    <GradeIcon className="rating-icon" />
-                    <span className="rating-text">{product.rating}</span>
+      {category !== 'mobilephone' ? (
+        <MenCategories /> 
+      ) : (
+        <div className="product-container">
+          {Object.entries(productsByBrand).map(([brand, products]) => (
+            <div className="brand-section" key={brand}>
+              <div className="brand-header">
+                <p className="text-header">{brand} Smartphones</p>
+                <a href={`/products/${brand}`} className="view-all">
+                  View All
+                </a>
+              </div>
+              <div className="product-grid">
+                {products.map((product) => (
+                  <div key={product._id} className="product-card">
+                    <div
+                      onClick={() => handleCardClick(product.sku)}
+                      className="cursor_p"
+                    >
+                      <img
+                        src={getImageUrl(product.images[0])}
+                        alt={product.name}
+                        className="product-image"
+                      />
+                      <p className="product-name">{product.name}</p>
+                    </div>
+
+                    <div className="rating-section">
+                      <GradeIcon className="rating-icon" />
+                      <span className="rating-text">{product.rating}</span>
+                    </div>
+                    <div className="pricing_section">
+                      <p className="discount_price">
+                        {formatPrice(
+                          calculateDiscountedPrice(
+                            product.price,
+                            product.discount
+                          )
+                        )}
+                      </p>
+                      <p className="original-price">
+                        {formatPrice(product.price)}
+                      </p>
+
+                      <p className="discount-text">{product.discount}% off</p>
+                    </div>
                   </div>
-                  <div className='pricing_section'>
-                  <p className="discount_price">
-                    {formatPrice(calculateDiscountedPrice(product.price, product.discount))}
-                  </p>
-                  <p className="original-price">
-                    {formatPrice(product.price)}
-                  </p>
-                 
-                  <p className="discount-text">{product.discount}% off</p>
-                  </div>
-                  
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
