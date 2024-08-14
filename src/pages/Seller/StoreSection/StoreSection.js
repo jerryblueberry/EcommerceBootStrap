@@ -3,6 +3,7 @@ import './StoreSection.css';
 import { useNavigate,useParams } from 'react-router-dom';
 import axios from 'axios';
 
+
 const StoreSection = () => {
     const {storeId} = useParams();
     const navigation = useNavigate();
@@ -23,6 +24,26 @@ const StoreSection = () => {
       }
       fetchProducts();
     },[]);
+
+    const handleDelete = async(sku) => {
+      try {
+        const response = await axios.delete(
+          `http://localhost:5000/product/delete/${sku}`,
+          
+          {
+              
+              withCredentials: true,
+          }
+          
+
+      );
+      alert("REsponse",response.data);
+        
+      } catch (error) {
+        console.log("ERror while deleting product");
+      }
+    }
+
     console.log(products)
 
     const handleNavigation = (sku) => {
@@ -65,11 +86,13 @@ const StoreSection = () => {
             <span>{product.name}</span>
             <div className='update_options'>
             <div onClick={() => handleUpdate(product.sku)}>
-            <i  class="ri-edit-line"></i>
+            <i  className="ri-edit-line"></i>
 
             </div>
+            <div className='delete_Section' onClick={() => handleDelete(product.sku)}>
+            <i className="ri-delete-bin-line"></i>
+            </div>
             
-            <i class="ri-delete-bin-line"></i>
             </div>
           </div>
 

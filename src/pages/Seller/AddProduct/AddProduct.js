@@ -124,6 +124,10 @@ const AddProduct = () => {
         <textarea name="description" value={formData.description} onChange={handleInputChange} maxLength="1000" required />
       </div>
       <div className="form-group">
+        <label>Brand:</label>
+        <textarea name="brand" value={formData.brand} onChange={handleInputChange} maxLength="1000" required />
+      </div>
+      <div className="form-group">
         <label>RAM (comma-separated):</label>
         <input type="text" name="ram" value={formData.ram} onChange={handleInputChange} />
       </div>

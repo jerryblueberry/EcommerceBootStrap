@@ -84,7 +84,7 @@ const Category = () => {
       image:
         'https://static-01.daraz.com.np/p/31853b16802ea0253051b912afef8ec8.jpg',
       link: 'watch',
-      subCategories: ['smartwatch', 'Casual&Fitness', 'Luxury Watches'],
+      subCategories: ['smartwatch', 'Casual', 'luxury'],
     },
   ];
 

@@ -294,7 +294,7 @@ console.log("FOrm IMAGE",formData.images)
         <label>Product Images:</label>
         <input type="file"  name="images" multiple onChange={handleFileChange} />
       </div>
-      <div className="form-group">
+      {/* <div className="form-group"> */}
       <div className="form-group">
         <label>Color Images:</label>
         <input type="file" name="color" multiple onChange={handleFileChange} />
