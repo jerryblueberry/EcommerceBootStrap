@@ -5,6 +5,7 @@ import GradeIcon from '@mui/icons-material/Grade';
 import './css/MobilePhone.css';
 import MobileSidebar from '../../components/Sidebar/mobile/MobileSidebar';
 import MenCategories from './ComponentsCategories/MenCategories';
+import Header from '../../components/header/Header';
 
 // Function to format price with commas and currency symbol
 const formatPrice = (value, currencySymbol = '₹') => {
@@ -62,8 +63,10 @@ const MobilePhone = () => {
   };
 
   return (
-    <div className="mobile-phone-container">
-      <MobileSidebar />
+    <div>
+    <Header/>
+         <div className="mobile-phone-container">
+      {/* <MobileSidebar /> */}
       {category !== 'mobilephone' ? (
         <MenCategories /> 
       ) : (
@@ -88,7 +91,7 @@ const MobilePhone = () => {
                         alt={product.name}
                         className="product-image"
                       />
-                      <p className="product-name">{product.name}</p>
+                      <h6 className="product-name">{product.name}</h6>
                     </div>
 
                     <div className="rating-section">
@@ -118,6 +121,8 @@ const MobilePhone = () => {
         </div>
       )}
     </div>
+    </div>
+ 
   );
 };
 

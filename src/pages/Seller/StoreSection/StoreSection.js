@@ -56,6 +56,11 @@ const StoreSection = () => {
         
     }
 
+    //  add bidding product
+    const handleAddBiddingProduct = () => {
+      navigation(`/seller/add-biddingProduct/${storeId}`)
+    }
+
     const handleUpdate  = (sku) => {
       navigation(`/seller/update-product/${sku}`);
     }
@@ -64,6 +69,7 @@ const StoreSection = () => {
       <div className="dashboard-header">
         <h1>Seller Dashboard</h1>
         <button onClick={handleAddProduct} className="add-product-btn">Add New Product</button>
+        <button onClick={handleAddBiddingProduct} className="add-product-btn">Add Bidding Product</button>
       </div>
       
       <div className="dashboard-content">

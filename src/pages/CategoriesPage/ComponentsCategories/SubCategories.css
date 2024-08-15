@@ -48,6 +48,9 @@
   cursor: pointer;
   color: #007bff;
 }
+.cursor_p {
+  font-size: 8px;
+}
 
 .product-card {
   /* border: 1px solid #ddd; */

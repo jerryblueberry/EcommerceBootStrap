@@ -98,7 +98,7 @@ const MenCategories = () => {
                   </div>
 
                   <div className="rating-section">
-                    <GradeIcon className="rating-icon" />
+                    {/* <GradeIcon className="rating-icon" /> */}
                     <span className="rating-text">{product.rating}</span>
                   </div>
                   <div className="pricing_section">

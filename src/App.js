@@ -16,6 +16,11 @@ import JoinSeller from './pages/Seller/BecomeSeller/JoinSeller';
 import AddStore from './pages/Seller/AddStore/AddStore';
 import StoreSection from './pages/Seller/StoreSection/StoreSection';
 import UpdateProduct from './pages/Seller/UpdateProduct/UpdateProduct';
+import AddBiddingProduct from './pages/BiddingPage/AddPRoduct/AddBiddingProduct';
+import GetAllBidding from './pages/BiddingPage/GetBiddingProducts/GetAllBidding';
+import BiddingDetail from './pages/BiddingPage/SpecificBidding/BiddingDetail';
+import GetCart from './pages/CartPage/GetCart/GetCart';
+import Order from './pages/Order/Order';
 
 const App = () => {
   return  (
@@ -42,6 +47,17 @@ const App = () => {
           <Route path = '/seller/add-store/:userId'  element ={<AddStore/>}/>
           <Route path='/store/section/:storeId' element ={<StoreSection/>}/>
           <Route path='/seller/update-product/:sku' element = {<UpdateProduct/>}/>
+
+
+          {/*  Bidding section */}
+          <Route path='/seller/add-biddingProduct/:storeId' element ={<AddBiddingProduct/>}/>
+          <Route path='/category/bidding' element = {<GetAllBidding/>}/>
+          <Route path='/bidding-product/:productId' element = {<BiddingDetail/>}/>
+        {/* Cart Path Section */}
+          <Route path='/cart' element = {<GetCart/>}/>
+
+          {/* Order Path */}
+          <Route path='/order' element ={<Order/>}/>
         </Routes>
       </BrowserRouter>
      

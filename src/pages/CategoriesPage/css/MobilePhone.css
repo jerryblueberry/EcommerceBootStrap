@@ -3,6 +3,7 @@
 .mobile-phone-container {
   display: flex;
   /* gap: 20px; */
+  margin-top: 80px;
 }
 
 .product-container {
@@ -20,6 +21,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  margin: 20px;
 }
 
 .text-header {
@@ -43,6 +45,9 @@
   gap: 1px;
   border: 1px solid #f6f4f4;
   box-shadow: 0 5px 9px rgba(0, 0, 0, 0.1);
+}
+.cursor_p {
+  color: wheat;
 }
 .cursor_p:hover {
   cursor: pointer;
@@ -80,7 +85,7 @@
     'Open Sans',
     'Helvetica Neue',
     sans-serif;
-  font-weight: 600;
+  font-weight: 100;
   margin: 10px 0;
 }
 

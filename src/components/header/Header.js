@@ -25,6 +25,11 @@ function Header() {
   const [userName, setUserName] = useState('');
   const [userId, setUserId] = useState('');
   const [userRole, setUserRole] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [debounceTimeout, setDebounceTimeout] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const userNameCookie = Cookies.get('userName');
@@ -33,24 +38,37 @@ function Header() {
 
     if (userNameCookie) {
       setUserName(userNameCookie);
-    } else {
-      // alert('User name token not found');
     }
 
     if (userIdCookie) {
       setUserId(userIdCookie);
-    } else {
-      // alert('User ID token not found');
     }
 
     if (userRoleCookie) {
       setUserRole(userRoleCookie);
-    } else {
-      // alert('User role token not found');
     }
   }, []);
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    if (debounceTimeout) clearTimeout(debounceTimeout);
+    
+    setDebounceTimeout(
+      setTimeout(async () => {
+        if (searchQuery.trim()) {
+          try {
+            const response = await axios.get(`http://localhost:5000/product/search`, {
+              params: { query: searchQuery }
+            });
+            setSearchResults(response.data);
+          } catch (error) {
+            console.error('Error fetching search results:', error);
+          }
+        } else {
+          setSearchResults([]);
+        }
+      }, 200) // Debounce delay
+    );
+  }, [searchQuery]);
 
   const handleMouseEnter = () => {
     setShowDropdown(true);
@@ -85,6 +103,14 @@ function Header() {
     navigate('/login');
   };
 
+  const handleOrder = () => {
+    navigate('/order')
+  }
+  const handleSearchNavigate =(sku) => {
+    navigate(`/detail/${sku}`)
+    window.location.reload();
+  }
+
   return (
     <>
       <Navbar collapseOnSelect expand="lg" className="bg-body" fixed="top">
@@ -100,19 +126,37 @@ function Header() {
                 placeholder="Search products..."
                 className="me-2 search-input"
                 aria-label="Search"
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
               <Button variant="outline-success">
                 <SearchIcon />
               </Button>
+              {searchResults.length > 0 && (
+                <div className="search-results">
+                  {searchResults.map((product) => (
+                    <>
+                    <h6>Search Results</h6>
+                    <div className="search-result-item" key={product._id} onClick={() =>handleSearchNavigate(product.sku)}>
+                      <img src={`http://localhost:5000/${product.images[0]}`} alt={product.name} />
+                      <div>
+                        <p className="product-name">{product.name}</p>
+                        <p className="product-price">${product.price}</p>
+                      </div>
+                    </div>
+
+                    </>
+                  
+                  ))}
+                </div>
+              )}
             </Form>
             <Nav className="ms-auto">
               <Nav.Link
                 eventKey={2}
-                href="#cart"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                <span className="me-2">
+                <span className="me-2" onClick={() => navigate('/cart')}>
                   <ShoppingCartOutlinedIcon className="icon" />
                   Cart
                 </span>
@@ -125,10 +169,10 @@ function Header() {
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                <NavDropdown.Item href="#account">
-                  <span>
+                <NavDropdown.Item>
+                  <span onClick={handleOrder}>
                     <PersonRoundedIcon className="icon" />
-                    My Account
+                    My Orders
                   </span>
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#wishlist">

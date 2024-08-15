@@ -1,0 +1,206 @@
+/* Main container for the cart page */
+.cart-container {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 1200px;
+  border: 1px solid #e0e0e0;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Cart title styling */
+.cart-title {
+  font-size: 2em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  animation: slideInFromTop 0.5s ease-out;
+}
+
+/* Container for cart items */
+.cart-items {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styling for individual cart items */
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  position: relative;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.cart-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Cart item image styling */
+.cart-item-image img {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.cart-item-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Container for item details */
+.cart-item-details {
+  flex: 1;
+  margin-left: 20px;
+}
+
+/* Styling for item name */
+.cart-item-name {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Styling for item description and price */
+.cart-item-description,
+.cart-item-price,
+.cart-item-quantity {
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+.cart-item:hover .cart-item-description,
+.cart-item:hover .cart-item-price,
+.cart-item:hover .cart-item-quantity {
+  color: #333;
+}
+
+/* Remove button styling */
+.cart-item-remove {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.remove-button {
+  background-color: #e53935;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.remove-button:hover {
+  background-color: #c62828;
+  transform: scale(1.1);
+}
+
+/* Cart summary styling */
+.cart-summary {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  animation: slideInFromBottom 0.5s ease-out;
+}
+
+/* Summary title and total price styling */
+.summary-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+}
+
+.total-price {
+  font-size: 1.2em;
+  color: #e53935;
+}
+
+/* Purchase button styling */
+.purchase-button {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  margin-top: 20px;
+  background-color: #4caf50;
+  color: #ffffff;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.purchase-button:hover {
+  background-color: #43a047;
+  transform: scale(1.02);
+}
+
+/* Loader and error message styling */
+.loader,
+.error {
+  text-align: center;
+  font-size: 1.5em;
+  margin: 50px 0;
+}
+
+.error {
+  color: #e53935;
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animation for sliding in from top */
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animation for sliding in from bottom */
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

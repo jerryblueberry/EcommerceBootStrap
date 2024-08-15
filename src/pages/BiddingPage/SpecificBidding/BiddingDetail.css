@@ -1,0 +1,253 @@
+.product-detail-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 1200px;
+  border: 1px solid #e0e0e0;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Container for product images */
+.product-images {
+  flex: 1;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for individual product images */
+.product-image {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.product-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Container for product information */
+.product-info {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styling for product name */
+.product-name {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+}
+
+/* Common styling for product details */
+.product-info p,
+.product-info h2,
+.product-info h3 {
+  margin: 10px 0;
+  color: #555;
+}
+
+/* Specific styling for product price */
+.product-price {
+  font-size: 1.5em;
+  color: #e53935;
+  font-weight: bold;
+}
+
+/* Styling for the bid form container */
+.bid-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px 0;
+  width: 100%;
+}
+
+.bid-form-container h2 {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Styling for the bid form */
+.bid-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Styling for the bid input */
+.bid-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 1em;
+}
+
+/* Styling for the place bid button */
+.place-bid-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #e53935;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.place-bid-button:hover {
+  background-color: #c62828;
+}
+
+.bid-error {
+  color: #e53935;
+  font-size: 1em;
+  margin-top: 10px;
+}
+
+/* Style for highlights section */
+.product-highlights {
+  margin: 20px 0;
+}
+
+.product-highlights h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.product-highlights ul {
+  list-style: none;
+  padding: 0;
+}
+
+.product-highlights li {
+  background: #f1f1f1;
+  padding: 12px;
+  margin: 5px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for color images */
+.product-colors {
+  margin: 20px 0;
+}
+
+.color-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+/* Style for description images */
+.desc-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* Loader and error message styling */
+.loader,
+.error {
+  text-align: center;
+  font-size: 1.5em;
+  margin: 50px 0;
+}
+
+.error {
+  color: #e53935;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .product-detail-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .product-images,
+  .product-info {
+    margin: 0;
+  }
+
+  .product-image {
+    margin-bottom: 10px;
+  }
+
+  .product-name {
+    font-size: 2em;
+  }
+
+  .product-price {
+    font-size: 1.2em;
+  }
+
+  .bid-form-container h2 {
+    font-size: 1.5em;
+  }
+
+  .bid-input,
+  .place-bid-button {
+    font-size: 0.9em;
+  }
+
+  .color-image {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-name {
+    font-size: 1.8em;
+  }
+
+  .product-price {
+    font-size: 1.1em;
+  }
+
+  .bid-form-container h2 {
+    font-size: 1.2em;
+  }
+
+  .bid-input,
+  .place-bid-button {
+    font-size: 0.8em;
+  }
+
+  .color-image {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
