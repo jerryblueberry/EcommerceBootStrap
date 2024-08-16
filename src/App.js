@@ -21,6 +21,9 @@ import GetAllBidding from './pages/BiddingPage/GetBiddingProducts/GetAllBidding'
 import BiddingDetail from './pages/BiddingPage/SpecificBidding/BiddingDetail';
 import GetCart from './pages/CartPage/GetCart/GetCart';
 import Order from './pages/Order/Order';
+import VendorDetail from './pages/NearByPage/VendorDetail';
+import ViewAll from './pages/ViewAll/ViewAll';
+import Admin from './pages/Admin/Admin';
 
 const App = () => {
   return  (
@@ -58,6 +61,12 @@ const App = () => {
 
           {/* Order Path */}
           <Route path='/order' element ={<Order/>}/>
+          {/*  Store Detail with its product */}
+          <Route path='/vendor/:storeId' element = {<VendorDetail/>}/>
+          {/* View All */}
+          <Route path='/viewAll/:subCategory' element = {<ViewAll/>}/>
+          {/* For admin */}
+          <Route path='/admin' element = {<Admin/>}/>
         </Routes>
       </BrowserRouter>
      

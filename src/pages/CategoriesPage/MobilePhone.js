@@ -75,9 +75,10 @@ const MobilePhone = () => {
             <div className="brand-section" key={brand}>
               <div className="brand-header">
                 <p className="text-header">{brand} Smartphones</p>
-                <a href={`/products/${brand}`} className="view-all">
+                {/* <a href={`/products/${brand}`} className="view-all">
                   View All
-                </a>
+                </a> */}
+                <p className='view-all'>View All</p>
               </div>
               <div className="product-grid">
                 {products.map((product) => (

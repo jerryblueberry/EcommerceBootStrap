@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './Nearby.css'; // Make sure to create this CSS file for styles
 
 const Nearby = () => {
+  const navigate = useNavigate();
   const [stores, setStores] = useState([]);
 
   useEffect(() => {
@@ -19,11 +21,21 @@ const Nearby = () => {
 
     fetchStores();
   }, []);
+  const handleLink   = (storeId) => {
+    navigate(`/vendor/${storeId}`);
+  }
 
   return (
     <div className="nearby-container">
       {stores.length === 0 ? (
-        <p>No nearby vendors found.</p>
+        <p style={{
+          display:'flex',
+          justifyContent:'center',
+          fontSize:'21px',
+          fontWeight:'600',
+          color:'#555555',
+          fontFamily:'sans-serif'
+        }}>No nearby vendors found.</p>
       ) : (
         <div className="category-container">
       <p className="category-title">Vendors Near You</p>
@@ -31,7 +43,7 @@ const Nearby = () => {
         {stores.map((product, index) => (
           <div
             className="category-item"
-            // onClick={() => handleLink(product.link, product.subCategories)}
+            onClick={() => handleLink(product._id)}
             key={index}
           >
             <img

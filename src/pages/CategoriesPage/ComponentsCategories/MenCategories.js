@@ -78,9 +78,10 @@ const MenCategories = () => {
           <div className="brand-section" key={brand}>
             <div className="brand-header_category">
               <p className="text-header_category">{brand} </p>
-              <a href={`/products/${brand}`} className="view-all">
+              {/* <a href={`/products/${brand}`} className="view-all">
                 View All
-              </a>
+              </a> */}
+              <p className='view-all' onClick={() => navigate(`/viewAll/${brand}`)}>View All</p>
             </div>
             <div className="product-grid">
               {products.map((product) => (

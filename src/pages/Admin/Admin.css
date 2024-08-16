@@ -1,0 +1,102 @@
+/* Admin Dashboard */
+.admin-dashboard {
+  margin-top: 80px;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f7fa;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+.users-section,
+.requests-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.user-list,
+.request-list {
+  list-style: none;
+  padding: 0;
+}
+
+.user-item,
+.request-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s;
+}
+
+.user-item:hover,
+.request-item:hover {
+  background-color: #f0f8ff;
+}
+
+.request-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.request-profile-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.request-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    transform 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .request-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .request-profile-pic {
+    margin-bottom: 10px;
+  }
+
+  button {
+    width: 100%;
+  }
+}

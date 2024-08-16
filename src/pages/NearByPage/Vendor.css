@@ -1,0 +1,216 @@
+.store-detail {
+  padding: 20px;
+  background-color: #f5f7fa;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 80px;
+}
+
+.store-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.store-logo-container {
+  width: 100%;
+  height: 350px; /* or any desired height */
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.store-logo {
+  width: 100%;
+  height: 450px;
+  object-fit: cover; /* Use cover to ensure the image covers the container */
+}
+
+.store-info {
+  margin-top: 10px;
+}
+
+.store-name {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.store-category {
+  font-size: 1.5rem;
+  color: #555;
+  text-transform: uppercase;
+}
+
+.store-status {
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+.store-status.verified {
+  color: #28a745;
+}
+
+.store-status.pending {
+  color: #dc3545;
+}
+
+.store-details {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.store-owner {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.owner-profile {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.store-owner h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.store-info-details p {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #333;
+}
+/* Existing styles */
+.products_FromStore {
+  display: flex;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 21px;
+  color: #555;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  justify-content: center;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.product-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 0 10px;
+  text-align: center;
+}
+
+.product-image {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.product-name {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+.product-price {
+  text-decoration: line-through;
+}
+.product-price,
+.product-discount-price,
+.product-save {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.product-discount-price {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.product-save {
+  color: #dc3545;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .product-card {
+    padding: 15px;
+  }
+
+  .product-image {
+    height: 150px;
+    object-fit: contain;
+  }
+
+  .product-name {
+    font-size: 1.2rem;
+  }
+
+  .product-price,
+  .product-discount-price,
+  .product-save {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .store-header {
+    flex-direction: column;
+  }
+
+  .store-logo-container {
+    height: 120px;
+  }
+
+  .store-logo {
+    object-fit: contain;
+  }
+
+  .store-name {
+    font-size: 2rem;
+  }
+
+  .store-category {
+    font-size: 1.2rem;
+  }
+
+  .store-info-details {
+    padding: 15px;
+  }
+
+  .owner-profile {
+    width: 80px;
+    height: 80px;
+  }
+
+  .store-owner h2 {
+    font-size: 1.5rem;
+  }
+}

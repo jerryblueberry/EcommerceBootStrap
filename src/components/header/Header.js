@@ -19,6 +19,7 @@ import axios from 'axios';
 import './Header.css';
 import Cookies from 'js-cookie';
 import StorefrontSharpIcon from '@mui/icons-material/StorefrontSharp';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
 function Header() {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -47,7 +48,7 @@ function Header() {
     if (userRoleCookie) {
       setUserRole(userRoleCookie);
     }
-  }, []);
+  }, [userRole]);
 
   useEffect(() => {
     if (debounceTimeout) clearTimeout(debounceTimeout);
@@ -181,12 +182,13 @@ function Header() {
                     My Wishlist
                   </span>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#settings">
-                  <span>
-                    <TuneOutlinedIcon className="icon" />
-                    Settings
+                {userRole ==='admin' ?     <NavDropdown.Item>
+                  <span onClick={() => navigate('/admin')}>
+                    <AdminPanelSettingsIcon className="icon" />
+                    Admin
                   </span>
-                </NavDropdown.Item>
+                </NavDropdown.Item>:null }
+           
                 <NavDropdown.Divider />
                 <NavDropdown.Item>
                   {userName ? (
